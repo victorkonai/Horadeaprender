@@ -10,7 +10,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".iu.ConfiguracoesActivity"
+            android:label="Configurações"
+            />
+        <activity
+            android:name=".iu.SobreActivity"
+            android:label="Sobre" />
+        <activity
+            android:name=".iu.EnviarQuestaoActivity"
+            android:label="Enviar questão" />
+        <activity
+            android:name=".iu.VerificarDesempenhoActivity"
+            android:label="Verificar desempenho" />
+        <activity
+            android:name=".iu.OpcoesSimuladoActivity"
+            android:label="Opções de simulado" />
+        <activity
+            android:name=".iu.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
