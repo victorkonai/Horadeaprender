@@ -5,33 +5,26 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:id="@+id/nav_fazer_simulado"
+            android:icon="@drawable/ic_menu_fazer_simulado"
+            android:title="@string/fazer_simulado" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
-        <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_tools" />
+            android:id="@+id/nav_verificar_desempenho"
+            android:icon="@drawable/ic_menu_verificar_desempenho"
+            android:title="@string/verificar_desempenho" />
+
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Comunicação">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_enviar_questao"
                 android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
+                android:title="@string/enviar_questao" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_sobre"
                 android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
+                android:title="@string/sobre" />
         </menu>
     </item>
 
