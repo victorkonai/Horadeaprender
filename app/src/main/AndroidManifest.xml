@@ -10,9 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".iu.DesempenhoActivity"
+            android:label="Desempenho"/>
+        <activity
+            android:name=".iu.SimuladoActivity"
+            android:label="Simulado"/>
+        <activity
             android:name=".iu.ConfiguracoesActivity"
-            android:label="Configurações"
-            />
+            android:label="Configurações" />
         <activity
             android:name=".iu.SobreActivity"
             android:label="Sobre" />
