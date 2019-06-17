@@ -1,23 +1,33 @@
 package br.com.horadeaprender.iu;
 
+import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import br.com.horadeaprender.R;
 import br.com.horadeaprender.model.Questao;
 
 public class EnviarQuestaoActivity extends AppCompatActivity {
 
+    public String TAG = "EnviarQuestaoActivity";
+
     private ViewHolder vh;
     private Questao questao;
-
+    FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +37,10 @@ public class EnviarQuestaoActivity extends AppCompatActivity {
         vh = new ViewHolder();
         questao = new Questao();
 
+        db = FirebaseFirestore.getInstance();
+
         carregarDados();
+
 
     }
 
@@ -51,6 +64,7 @@ public class EnviarQuestaoActivity extends AppCompatActivity {
         // Apply the adapter to the spinner
         vh.spinnerOpSimulado.setAdapter(adapter);
     }
+
 
     public class ViewHolder {
 
@@ -95,6 +109,7 @@ public class EnviarQuestaoActivity extends AppCompatActivity {
 
             buttonVerPreview.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
+                    questao.setTipoSimulado(spinnerOpSimulado.getSelectedItem().toString());
                     questao.setEnuciado(edtPergunta.getText().toString());
                     questao.setAlternativaCorreta(edtCorreta.getText().toString());
                     textViewPreview.setText(questao.toString());
@@ -103,16 +118,36 @@ public class EnviarQuestaoActivity extends AppCompatActivity {
 
             buttonEnviar.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    // Code here executes on main thread after user presses button
+                    questao.setTipoSimulado(spinnerOpSimulado.getSelectedItem().toString());
+                    questao.setEnuciado(edtPergunta.getText().toString());
+                    questao.setAlternativaCorreta(edtCorreta.getText().toString());
+
+                    db.collection("simulados").document(questao.getTipoSimulado()).collection("perguntas")
+                            .add(questao)
+                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                @Override
+                                public void onSuccess(DocumentReference documentReference) {
+                                    Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.w(TAG, "Error adding document", e);
+
+                                    finish();
+
+
+                                }
+                            });
                 }
             });
-
-
         }
         private void supportNaviagteUp() {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
             getSupportActionBar().setHomeButtonEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+
     }
 }

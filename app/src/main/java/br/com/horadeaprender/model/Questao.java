@@ -1,11 +1,18 @@
 package br.com.horadeaprender.model;
 
+import com.google.firebase.firestore.Exclude;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Questao {
+public class Questao implements Serializable {
 
     private String enuciado, alternativaCorreta;
+
+    @Exclude
+    private String tipoSimulado;
+
     private List<String> alternativas, comentarios;
 
     public String getEnuciado() {
@@ -15,6 +22,14 @@ public class Questao {
     public Questao(){
         alternativas = new ArrayList<>();
         comentarios = new ArrayList<>();
+    }
+
+    public String getTipoSimulado() {
+        return tipoSimulado;
+    }
+
+    public void setTipoSimulado(String tipoSimulado) {
+        this.tipoSimulado = tipoSimulado;
     }
 
     public void setEnuciado(String enuciado) {
@@ -47,7 +62,7 @@ public class Questao {
 
     @Override
     public String toString() {
-        String aux =  "Questao:\n\n" +
+        String aux =  "Questão - " + tipoSimulado + "\n\n"+
                 enuciado + "\n\n" ;
 
         char letra = 'A';
