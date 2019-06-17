@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "596673847149",
+    "firebase_url": "https://hora-de-aprender.firebaseio.com",
+    "project_id": "hora-de-aprender",
+    "storage_bucket": "hora-de-aprender.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:596673847149:android:7896934301ae7d69",
+        "android_client_info": {
+          "package_name": "br.com.horadeaprender"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "596673847149-ud3a8hbcckvap2d8535jv4lmh9do0ius.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.horadeaprender",
+            "certificate_hash": "fdec129cf90fccdc081ed7da1ebd8f3e496a838f"
+          }
+        },
+        {
+          "client_id": "596673847149-67cvr75cc3g4kus83mto5pn4gchfm84g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9R-5xp5AOiU1NiR-vzPra3Y1AL981hkU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "596673847149-67cvr75cc3g4kus83mto5pn4gchfm84g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
