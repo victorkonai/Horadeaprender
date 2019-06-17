@@ -1,5 +1,6 @@
 package br.com.horadeaprender.iu;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -128,6 +129,9 @@ public class EnviarQuestaoActivity extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(DocumentReference documentReference) {
                                     Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
+
+                                    finish();
+                                    telaSucesso();
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
@@ -135,19 +139,25 @@ public class EnviarQuestaoActivity extends AppCompatActivity {
                                 public void onFailure(@NonNull Exception e) {
                                     Log.w(TAG, "Error adding document", e);
 
-                                    finish();
-
-
+                                    Toast.makeText(getApplicationContext(), "Erro ao enviar questão", Toast.LENGTH_SHORT).show();
+                                    onBackPressed();
                                 }
                             });
                 }
             });
         }
+
+
+
         private void supportNaviagteUp() {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
             getSupportActionBar().setHomeButtonEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
+    }
+    private void telaSucesso(){
+        Intent intent = new Intent(this, SucessoEnviaQuestaoActivity.class);
+        startActivity(intent);
     }
 }
