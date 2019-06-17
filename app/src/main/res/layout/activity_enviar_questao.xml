@@ -32,8 +32,12 @@
         android:id="@+id/linearLayoutCompat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPergunta">
 
         <android.support.design.widget.TextInputLayout
@@ -43,14 +47,50 @@
 
             <EditText
                 android:id="@+id/edt_alternativa"
-                android:layout_width="300dp"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:hint="Alternativa"
                 android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonAdicionarAlternativa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adicionar"
+            tools:layout_editor_absoluteX="50dp"
+            tools:layout_editor_absoluteY="299dp" />
+
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:id="@+id/linearLayoutCompat2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCorreta">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutComentario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edt_comentario"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:hint="Comentário"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/buttonAdicionarComentario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Adicionar"
@@ -73,31 +113,44 @@
             android:id="@+id/edt_correta"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:hint="Correta"
+            android:hint="Alternativa correta"
             android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 
     <TextView
-        android:id="@+id/textViewPreview"
+        android:id="@+id/textView_preview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:padding="8dp"
         android:text="Preview questão"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCorreta"
-        tools:layout_editor_absoluteX="108dp" />
+        app:layout_constraintBottom_toTopOf="@+id/buttonVerPreview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat2" />
 
+
+    <Button
+        android:id="@+id/buttonVerPreview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Ver preview"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonEnviar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="Enviar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
