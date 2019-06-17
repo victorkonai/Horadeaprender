@@ -12,7 +12,7 @@ public class ConfiguracoesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_opcoes_simulado);
+        setContentView(R.layout.activity_configuracoes);
 
         vh = new ViewHolder();
     }
