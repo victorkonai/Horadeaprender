@@ -7,6 +7,17 @@
     tools:context=".iu.EnviarQuestaoActivity">
 
 
+    <Spinner
+        android:id="@+id/spinner_tipo_simulado"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <android.support.design.widget.TextInputLayout
         android:id="@+id/textInputLayoutPergunta"
         android:layout_width="match_parent"
@@ -16,7 +27,7 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/spinner_tipo_simulado">
 
         <EditText
             android:id="@+id/edt_pergunta"
@@ -69,7 +80,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,9 +104,7 @@
             android:id="@+id/buttonAdicionarComentario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Adicionar"
-            tools:layout_editor_absoluteX="50dp"
-            tools:layout_editor_absoluteY="299dp" />
+            android:text="Adicionar" />
 
 
     </android.support.v7.widget.LinearLayoutCompat>
@@ -152,5 +161,7 @@
         android:text="Enviar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+
 
 </android.support.constraint.ConstraintLayout>

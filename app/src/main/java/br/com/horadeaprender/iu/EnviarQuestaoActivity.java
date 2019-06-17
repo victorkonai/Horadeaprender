@@ -4,8 +4,10 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import br.com.horadeaprender.R;
@@ -25,6 +27,8 @@ public class EnviarQuestaoActivity extends AppCompatActivity {
         vh = new ViewHolder();
         questao = new Questao();
 
+        carregarDados();
+
     }
 
     @Override
@@ -38,7 +42,19 @@ public class EnviarQuestaoActivity extends AppCompatActivity {
         finish();
     }
 
+    private void carregarDados(){
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.opcoes_simulado_aray, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        vh.spinnerOpSimulado.setAdapter(adapter);
+    }
+
     public class ViewHolder {
+
+        Spinner spinnerOpSimulado = findViewById(R.id.spinner_tipo_simulado);
 
         EditText edtPergunta = findViewById(R.id.edt_pergunta);
         EditText edtAlternativa = findViewById(R.id.edt_alternativa);
@@ -57,6 +73,7 @@ public class EnviarQuestaoActivity extends AppCompatActivity {
         public ViewHolder() {
 
             supportNaviagteUp();
+
 
             buttonAdicionarAlternativa.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
