@@ -1,5 +1,6 @@
 package br.com.horadeaprender.iu;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,7 +20,7 @@ import br.com.horadeaprender.R;
 import br.com.horadeaprender.adapter.RecyclerViewAdapter;
 import br.com.horadeaprender.model.Simulado;
 
-public class OpcoesSimuladoActivity extends AppCompatActivity {
+public class OpcoesSimuladoActivity extends AppCompatActivity implements RecyclerViewAdapter.OnReceive{
 
     private static String TAG = "OpcoesSimuladoActivity";
 
@@ -73,9 +74,20 @@ public class OpcoesSimuladoActivity extends AppCompatActivity {
     }
 
     private void carregarDadosRecyclerView(){
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, opcoesSimulados);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, opcoesSimulados, this);
         vh.recyclerView.setAdapter(adapter);
         vh.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    private void abrirTelaSimulado(){
+
+        Intent intent = new Intent(this, SimuladoActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onReceiveItemList(Simulado simulado) {
+        abrirTelaSimulado();
     }
 
     public class ViewHolder {
