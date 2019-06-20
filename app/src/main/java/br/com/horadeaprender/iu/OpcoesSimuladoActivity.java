@@ -2,6 +2,7 @@ package br.com.horadeaprender.iu;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 
 import br.com.horadeaprender.R;
 
@@ -28,7 +29,17 @@ public class OpcoesSimuladoActivity extends AppCompatActivity {
         finish();
     }
 
+    private void getOpcoesSimulado(){
+
+    }
+
+    private void carregarDadosRecyclerView(){
+
+    }
+
     public class ViewHolder {
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerViewSimulados);
 
         public ViewHolder() {
             supportNaviagteUp();
